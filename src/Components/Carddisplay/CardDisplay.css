@@ -1,0 +1,10 @@
+.button_group{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.card{
+    background-color: #94e164;
+    width: 100%;
+max-width: 600px;
+}

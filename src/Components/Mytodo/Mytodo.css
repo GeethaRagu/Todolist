@@ -1,0 +1,31 @@
+.task_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 4%;
+    row-gap: 15px;
+    font-size: 1.1rem;
+      
+}
+.task_container_list{
+    display: flex;
+flex-flow: column nowrap;
+justify-content: start;
+align-items: start;
+gap: 20px;
+background-color: #94e164;
+padding: 10px;
+border-radius: 5px;
+width: 100%;
+max-width: 600px;
+height: min(30vh, max-content);
+overflow: hidden;
+}
+#completed,#notcompleted{
+    display:none;
+}
+.filter_main{
+    margin:3rem 0 2rem 0;
+}
+.filter_header{
+    float:right;
+}
