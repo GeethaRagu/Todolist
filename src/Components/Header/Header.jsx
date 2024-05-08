@@ -10,20 +10,20 @@ const Header = () => {
   const [task, setTask] = useState([]);
   const [taskname, setTaskName] = useState("");
   const [taskdesc, setTaskDesc] = useState("");
-  const [complete, setComplete] = useState("false");
+  const [complete, setComplete] = useState('');
   const [currenttodo,setCurrentToDo] = useState('');
   const [iseditable,setIsEditable] = useState("false");
 
   const addTask = () => {
     
     if (taskname !== "" && taskdesc != "") {
-        setComplete("false");
+        //setComplete("false");
         
       let addlist = {
         id: task.length+1,
         name: taskname,
         description: taskdesc,
-        completed: complete,
+        completed: "false",
       };
      // console.log(addlist);
 
@@ -33,18 +33,19 @@ const Header = () => {
       setIsEditable("false");
     }
   };
-  const saveTask = ()=>{
+  const saveTask = (currenttodo)=>{
 
     let updatedname = taskname;
     let updateddesc = taskdesc;
     let updatedcomplete;
-    //let optionselected = document.getElementById("selectoption");
-    // console.log(optionselected.value);
-    if(complete === "true")
+    let optionselected = document.getElementById(currenttodo);
+     //console.log(optionselected.value);
+    if(optionselected.value === "Completed")
          updatedcomplete= "true";
     else
        updatedcomplete= "false";
-    console.log("HEADER",updatedcomplete);
+    //console.log("HEADER",updatedcomplete);
+    //console.log(currenttodo);
     let updatedtask = task.map((e)=>{
         if(e.id===currenttodo){
             e.name = updatedname,
@@ -83,7 +84,7 @@ const Header = () => {
                 onChange={(e) => setTaskDesc(e.target.value)}
               ></input>
               {iseditable==="true" ? 
-              (<Button onClick={()=>{saveTask(task)}}>Save Task</Button>)
+              (<Button onClick={()=>{saveTask(currenttodo)}}>Save Task</Button>)
               :
               (<Button variant="success" onClick={addTask}>Add Task</Button>)
              }

@@ -17,6 +17,7 @@ const Carddisplay = ({
   setCurrentToDo,
 }) => {
   const editTask = (element) => {
+    console.log(element);
     setIsEditable("true");
     setTaskName(element.name);
     setTaskDesc(element.description);
@@ -26,12 +27,13 @@ const Carddisplay = ({
 
   const changestatus = (element) => {
     let optionselected = document.getElementById(ele.id);
+   // console.log(optionselected.value);
     if (optionselected.value === "Completed") {
       element.completed = "true";
-      setComplete("true");
+      //setComplete("true");
     } else if (optionselected.value === "NotCompleted") {
         element.completed = "false";
-        setComplete("false");
+        //setComplete("false");
     }
   };
   const removeTask = (i) => {
@@ -57,16 +59,16 @@ const Carddisplay = ({
             >
               <option
                 value="NotCompleted"
-                onChange={(e) => setComplete("false")}
+                
               >
                 NotCompleted
               </option>
-              <option value="Completed" onChange={(e) => setComplete("true")}>
+              <option value="Completed" >
                 Completed
               </option>
             </select>
           ) : (
-            <select>
+            <select id={ele.id}>
               <option
                 value={ele.completed === "true" ? "Completed" : "NotCompleted"}
               >
