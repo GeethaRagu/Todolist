@@ -1,3 +1,3 @@
-# React + Vite
+# todolist
 
 Todo list using React state.
